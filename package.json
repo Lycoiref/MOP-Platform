@@ -12,8 +12,10 @@
     "@babel/core": "^7.21.0",
     "@babel/eslint-parser": "^7.19.1",
     "eslint": "^8.35.0",
+    "eslint-plugin-html": "^7.1.0",
     "vite-plugin-eslint": "^1.8.1",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
