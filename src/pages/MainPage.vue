@@ -36,7 +36,8 @@ console.log(router.currentRoute.value.path)
             </div>
             <el-drawer v-model="drawer" :with-header="false" :direction="'ltr'" size="70%">
                 <div class="login_box">
-                    <el-avatar :icon="UserFilled" :size="50" class="avatar" />
+                    <el-avatar :icon="UserFilled" :size="50" class="avatar" style="font-size: 25px" />
+                    <div class="login_text">注册/登录</div>
                 </div>
             </el-drawer>
         </div>
@@ -69,13 +70,13 @@ console.log(router.currentRoute.value.path)
 
     .login_box {
         width: 100%;
-        height: 200px;
-        font-size: 50px;
+        // height: 200px;
+        display: flex;
+        align-items: center;
 
-        .avatar {
-            .el-icon {
-                width: 50px;
-            }
+        .login_text {
+            margin-left: 20px;
+            font-size: 14px;
         }
     }
 }
