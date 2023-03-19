@@ -1,8 +1,11 @@
 <script setup>
 // 打印当前路由
 import { useRouter } from 'vue-router'
+import { UserFilled } from '@element-plus/icons-vue'
+import { ref } from 'vue'
 
 const router = useRouter()
+let drawer = ref(false)
 
 const checkDevice = () => {
     const ua = navigator.userAgent
@@ -20,12 +23,17 @@ console.log(router.currentRoute.value.path)
 
 <template>
     <template v-if="mobile">
-        <div class="page">
+        <div class="mobile-page">
             <div class="top_bar">
-                <div class="user_head">
-                    <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+                <div class="user_head" @click="drawer = true">
+                    <el-avatar :icon="UserFilled" :size="25" />
                 </div>
             </div>
+            <el-drawer v-model="drawer" :with-header="false" :direction="'ltr'" size="70%">
+                <div class="login_box">
+                    <el-avatar :icon="UserFilled" :size="50" class="avatar" />
+                </div>
+            </el-drawer>
         </div>
     </template>
     <template v-else>
@@ -41,6 +49,32 @@ console.log(router.currentRoute.value.path)
 </template>
 
 <style scoped lang="less">
+.mobile-page {
+    width: 100vw;
+    height: 100vh;
+
+    .top_bar {
+        width: 100vw;
+        height: 5vh;
+
+        .user_head {
+            margin: 10px;
+        }
+    }
+
+    .login_box {
+        width: 100%;
+        height: 200px;
+        font-size: 50px;
+
+        .avatar {
+            .el-icon {
+                width: 50px;
+            }
+        }
+    }
+}
+
 .page {
     width: 100vw;
     height: 100vh;
