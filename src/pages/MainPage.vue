@@ -16,7 +16,12 @@ const checkDevice = () => {
     return isMobile
 }
 
-let mobile = checkDevice()
+let mobile = ref(checkDevice())
+
+// 监听navigator.userAgent变化
+window.addEventListener('resize', () => {
+    mobile.value = checkDevice()
+})
 
 console.log(router.currentRoute.value.path)
 </script>
