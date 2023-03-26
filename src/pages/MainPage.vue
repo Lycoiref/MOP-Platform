@@ -3,6 +3,9 @@
 import { useRouter } from 'vue-router'
 import { UserFilled } from '@element-plus/icons-vue'
 import { ref } from 'vue'
+import CodeScanner from '../components/CodeScanner.vue'
+import FormBox from '../components/FormBox.vue'
+import RepairCard from '../components/RepairCard.vue'
 
 const router = useRouter()
 let drawer = ref(false)
@@ -34,12 +37,26 @@ console.log(router.currentRoute.value.path)
                     <el-avatar :icon="UserFilled" :size="25" />
                 </div>
             </div>
+            <div class="body">
+                <div class="utils-section">
+                    <CodeScanner></CodeScanner>
+                    <FormBox></FormBox>
+                </div>
+                <div class="history-recorder">
+                    <div class="title-box">历史报修记录</div>
+                    <RepairCard></RepairCard>
+                    <RepairCard></RepairCard>
+                </div>
+            </div>
             <el-drawer v-model="drawer" :with-header="false" :direction="'ltr'" size="70%">
                 <div class="login_box">
                     <el-avatar :icon="UserFilled" :size="50" class="avatar" style="font-size: 25px" />
                     <div class="login_text">注册/登录</div>
                 </div>
             </el-drawer>
+            <div class="background-page">
+                <div class="color-box"></div>
+            </div>
         </div>
     </template>
     <template v-else>
@@ -65,6 +82,60 @@ console.log(router.currentRoute.value.path)
 
         .user_head {
             margin: 10px;
+        }
+    }
+
+    .body {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        // align-items: flex-start;
+        flex-wrap: wrap;
+
+        .utils-section {
+            width: 100%;
+            height: 20vw;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .history-recorder {
+            width: 80vw;
+            height: calc(90vh - 20vw - 50px);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .title-box {
+                margin-top: 20px;
+                width: 100%;
+                height: 25vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                border-radius: 20px;
+                color: #333;
+                background-color: #fff;
+                // border: 1px solid #333;
+            }
+        }
+    }
+
+    .background-page {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #f4f4f4;
+
+        .color-box {
+            width: 100vw;
+            height: 30vh;
+            background-color: #66ccff;
         }
     }
 
