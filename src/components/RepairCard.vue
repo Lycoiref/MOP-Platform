@@ -4,11 +4,9 @@
         <div class="content">
             <div class="topline inline">
                 <div class="username">报修人：{{ repairData.name }}</div>
-                <div v-if="repairData.status === 0" class="status" :class="`status_${repairData.status}`">
-                    订单状态：未处理
-                </div>
+                <div v-if="repairData.status === 0" class="status" :class="`status_${repairData.status}`">未处理</div>
                 <div v-else-if="repairData.status === 1" class="status" :class="`status_${repairData.status}`">
-                    订单状态：待评价
+                    待评价
                 </div>
             </div>
             <div class="inline">
@@ -23,7 +21,7 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps({
     repairData: {
@@ -34,7 +32,7 @@ const props = defineProps({
                 title: '1111',
                 orderId: 1234643325723,
                 equipmentName: '丑的空调',
-                address: '杭州电子科技大学下沙校区生活区5号楼',
+                address: '浙江省杭州市江干区杭州电子科技大学下沙校区生活区5号楼',
                 reason: '空调制冷效果差',
                 time: '2021年05月01日',
                 status: 1,
@@ -63,7 +61,7 @@ let repairData = ref(props.repairData)
         height: 100%;
 
         .topline {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 1000;
             display: flex;
             align-items: center;
@@ -71,13 +69,21 @@ let repairData = ref(props.repairData)
             margin-bottom: 18px;
 
             .status {
+                // width: 80px;
+                height: 30px;
                 font-size: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0px 15px;
+                border-radius: 15px;
             }
             .status_0 {
                 color: #f00;
             }
             .status_1 {
-                color: #66ccff;
+                color: #fff;
+                background-color: #66ccff;
             }
         }
     }

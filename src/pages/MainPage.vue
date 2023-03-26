@@ -1,32 +1,17 @@
 <script setup>
 // 打印当前路由
-import { useRouter } from 'vue-router'
+// import { useRouter } from 'vue-router'
 import { UserFilled } from '@element-plus/icons-vue'
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 import CodeScanner from '../components/CodeScanner.vue'
 import FormBox from '../components/FormBox.vue'
 import RepairCard from '../components/RepairCard.vue'
 
-const router = useRouter()
+// const router = useRouter()
 let drawer = ref(false)
+const mobile = ref(getCurrentInstance().appContext.config.globalProperties.mobile)
 
-const checkDevice = () => {
-    const ua = navigator.userAgent
-    const ipad = ua.match(/(iPad).*OS\s([\d_]+)/)
-    const isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/)
-    const isAndroid = ua.match(/(Android)\s+([\d.]+)/)
-    const isMobile = isIphone || isAndroid
-    return isMobile
-}
-
-let mobile = ref(checkDevice())
-
-// 监听navigator.userAgent变化
-window.addEventListener('resize', () => {
-    mobile.value = checkDevice()
-})
-
-console.log(router.currentRoute.value.path)
+console.log(mobile)
 </script>
 
 <template>

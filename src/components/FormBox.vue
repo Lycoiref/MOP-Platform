@@ -1,6 +1,6 @@
 <!-- 填写报修单 -->
 <template>
-    <div class="form-box">
+    <div class="form-box" @click="router.push('/report')">
         <div class="icon-box">
             <svg
                 t="1679855445645"
@@ -31,7 +31,11 @@
     </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router'
+
+let router = useRouter()
+</script>
 
 <style scoped lang="less">
 .form-box {

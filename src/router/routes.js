@@ -1,5 +1,6 @@
 import * as VueRouter from 'vue-router'
 import MainPage from '../pages/MainPage.vue'
+import ReportFault from '../pages/ReportFault.vue'
 
 // 1. 定义路由组件.
 // 也可以从其他文件导入
@@ -10,6 +11,7 @@ const About = { template: '<div>About</div>' }
 // 我们后面再讨论嵌套路由。
 const routes = [
     { path: '/', component: MainPage },
+    { path: '/report', component: ReportFault },
     { path: '/about', component: About },
 ]
 

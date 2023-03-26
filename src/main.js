@@ -9,6 +9,9 @@ import 'element-plus/dist/index.css'
 
 const app = createApp(App)
 
+// 全局变量，记录用户是移动端还是PC端
+app.config.globalProperties.mobile = null
+
 // console.log(router)
 app.use(router)
 app.use(ElementPlus)
