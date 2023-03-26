@@ -47,7 +47,7 @@ let repairData = ref(props.repairData)
 <style scoped lang="less">
 .card-body {
     width: 80vw;
-    height: 45vw;
+    // height: 50vw;
     margin-top: 20px;
     border-radius: 10px;
     font-size: 14px;
@@ -59,6 +59,7 @@ let repairData = ref(props.repairData)
     .content {
         width: 90%;
         height: 100%;
+        margin-bottom: 5px;
 
         .topline {
             font-size: 18px;

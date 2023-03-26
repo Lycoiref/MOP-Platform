@@ -2,20 +2,20 @@
 // 打印当前路由
 // import { useRouter } from 'vue-router'
 import { UserFilled } from '@element-plus/icons-vue'
-import { ref, getCurrentInstance } from 'vue'
+import { ref } from 'vue'
+import { useStore } from 'vuex'
 import CodeScanner from '../components/CodeScanner.vue'
 import FormBox from '../components/FormBox.vue'
 import RepairCard from '../components/RepairCard.vue'
 
 // const router = useRouter()
 let drawer = ref(false)
-const mobile = ref(getCurrentInstance().appContext.config.globalProperties.mobile)
 
-console.log(mobile)
+// console.log(mobile)
 </script>
 
 <template>
-    <template v-if="mobile">
+    <template v-if="useStore().state.isMobile">
         <div class="mobile-page">
             <div class="top_bar">
                 <div class="user_head" @click="drawer = true">

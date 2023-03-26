@@ -1,5 +1,5 @@
 <script setup>
-import { getCurrentInstance } from 'vue'
+import { useStore } from 'vuex'
 
 // console.log(this.$route)
 const checkDevice = () => {
@@ -8,14 +8,15 @@ const checkDevice = () => {
     const isIphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/)
     const isAndroid = ua.match(/(Android)\s+([\d.]+)/)
     const isMobile = isIphone || isAndroid
-    return isMobile
+    return isMobile ? true : false
 }
 
-getCurrentInstance().appContext.config.globalProperties.mobile = checkDevice()
+const store = useStore()
 
+store.commit('setMobile', checkDevice())
 // 监听navigator.userAgent变化
 window.addEventListener('resize', () => {
-    getCurrentInstance().appContext.config.globalProperties.mobile = checkDevice()
+    store.commit('setMobile', checkDevice())
 })
 </script>
 
