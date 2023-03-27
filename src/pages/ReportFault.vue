@@ -56,8 +56,8 @@
                     <el-form-item label="电话"> <el-input v-model="form.type" /></el-form-item>
                     <div class="time">
                         <div class="time-label">预约上门时间</div>
-                        <el-date-picker v-model="value1" type="date" placeholder="Pick a day" :size="size" />
-                        <el-date-picker v-model="value1" type="date" placeholder="Pick a day" :size="size" />
+                        <el-date-picker v-model="value1" type="date" placeholder="Pick a day" />
+                        <el-date-picker v-model="value1" type="date" placeholder="Pick a day" />
                     </div>
                     <el-button type="primary" size="large" round @click="router.push('/submit')">发起报修</el-button>
                 </el-form>
