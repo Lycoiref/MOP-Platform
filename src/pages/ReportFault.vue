@@ -59,7 +59,7 @@
                         <el-date-picker v-model="value1" type="date" placeholder="Pick a day" :size="size" />
                         <el-date-picker v-model="value1" type="date" placeholder="Pick a day" :size="size" />
                     </div>
-                    <el-button type="primary" size="large" round>发起报修</el-button>
+                    <el-button type="primary" size="large" round @click="router.push('/submit')">发起报修</el-button>
                 </el-form>
             </div>
         </div>
@@ -70,9 +70,11 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 // 图片上传
 import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
 
+let router = useRouter()
 const dialogImageUrl = ref('')
 const dialogVisible = ref(false)
 const disabled = ref(false)
