@@ -1,9 +1,10 @@
-<script setup>
+<script lang="ts" setup>
 // 打印当前路由
 // import { useRouter } from 'vue-router'
 import { UserFilled } from '@element-plus/icons-vue'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useStore } from 'vuex'
+import axios from 'axios'
 import CodeScanner from '../components/CodeScanner.vue'
 import FormBox from '../components/FormBox.vue'
 import RepairCard from '../components/RepairCard.vue'
@@ -11,7 +12,12 @@ import RepairCard from '../components/RepairCard.vue'
 // const router = useRouter()
 let drawer = ref(false)
 
-// console.log(mobile)
+onMounted(() => {
+    // 测试连接
+    axios.post('http://localhost:3000/api/test').then((res) => {
+        console.log(res)
+    })
+})
 </script>
 
 <template>
