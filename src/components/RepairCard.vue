@@ -1,6 +1,6 @@
 <!-- 维修历史卡片 -->
 <template>
-    <div class="card-body">
+    <div class="card-body" @click="router.push(`/report/${repairData.orderId}`)">
         <div class="content">
             <div class="topline inline">
                 <div class="username">报修人：{{ repairData.name }}</div>
@@ -22,7 +22,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const props = defineProps({
     repairData: {
         type: Object,
