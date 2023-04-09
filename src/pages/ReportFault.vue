@@ -1,7 +1,7 @@
 <template>
     <template v-if="useStore().state.isMobile">
         <div class="mobile-page">
-            <div class="header">返回</div>
+            <MobileHeader></MobileHeader>
             <div class="content">
                 <el-form :model="form" label-width="75px" label-position="left">
                     <div class="label">设备信息</div>
@@ -73,6 +73,7 @@ import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 // 图片上传
 import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
+import MobileHeader from '../components/MobileHeader.vue'
 
 let router = useRouter()
 const dialogImageUrl = ref('')
@@ -113,12 +114,6 @@ const form = ref({
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-
-    .header {
-        width: 100vw;
-        height: 30px;
-        background-color: #66ccff;
-    }
 
     .content {
         width: 90vw;

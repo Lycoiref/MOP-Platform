@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <div class="header" @click="router.go(-1)">返回</div>
+        <MobileHeader></MobileHeader>
         <InvoiceCard></InvoiceCard>
         <InvoiceCard></InvoiceCard>
         <InvoiceCard></InvoiceCard>
@@ -10,9 +10,7 @@
 
 <script setup>
 import InvoiceCard from '../components/InvoiceCard.vue'
-import { useRouter } from 'vue-router'
-
-let router = useRouter()
+import MobileHeader from '../components/MobileHeader.vue'
 </script>
 
 <style scoped lang="less">
@@ -22,11 +20,5 @@ let router = useRouter()
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .header {
-        width: 100%;
-        height: 50px;
-        background-color: rgb(87, 168, 255);
-    }
 }
 </style>

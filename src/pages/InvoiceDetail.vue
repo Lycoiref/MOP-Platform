@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <div class="header" @click="router.go(-1)">返回</div>
+        <MobileHeader></MobileHeader>
         <div class="content">
             <div class="detail_box"></div>
             <div class="detail_box middle"></div>
@@ -10,7 +10,9 @@
     </div>
 </template>
 
-<script setup></script>
+<script setup>
+import MobileHeader from '../components/MobileHeader.vue'
+</script>
 
 <style scoped lang="less">
 .page {
@@ -19,12 +21,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .header {
-        width: 100%;
-        height: 50px;
-        background-color: rgb(87, 168, 255);
-    }
 
     .content {
         width: 100vw;
