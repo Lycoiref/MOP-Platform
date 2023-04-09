@@ -25,12 +25,22 @@
             </div>
         </div>
         <div class="body">
-            <div class="utils-section">
+            <div v-if="props.role === 'user'" class="utils-section">
                 <CodeScanner></CodeScanner>
                 <FormBox></FormBox>
             </div>
+            <div v-else-if="props.role === 'admin'" class="utils-section">
+                <OrderButton></OrderButton>
+                <InvoiceButton></InvoiceButton>
+            </div>
             <div class="history-recorder">
                 <div class="title-box">历史报修记录</div>
+                <div v-if="props.role === 'admin'" class="select-bar">
+                    <div class="bar selected">全部</div>
+                    <div class="bar">待处理</div>
+                    <div class="bar">待评价</div>
+                    <div class="bar">已完成</div>
+                </div>
                 <RepairCard></RepairCard>
                 <RepairCard></RepairCard>
             </div>
@@ -51,10 +61,18 @@
 import CodeScanner from '../components/CodeScanner.vue'
 import FormBox from '../components/FormBox.vue'
 import RepairCard from '../components/RepairCard.vue'
+import OrderButton from '../components/OrderButton.vue'
+import InvoiceButton from '../components/InvoiceButton.vue'
 import { UserFilled } from '@element-plus/icons-vue'
-import { ref } from 'vue'
+import { ref, defineProps } from 'vue'
 
 let drawer = ref(false)
+let props = defineProps({
+    role: {
+        type: String,
+        default: 'admin',
+    },
+})
 </script>
 
 <style scoped lang="less">
@@ -93,6 +111,18 @@ let drawer = ref(false)
         justify-content: center;
         // align-items: flex-start;
         flex-wrap: wrap;
+
+        .select-bar {
+            margin-top: 15px;
+            width: 100vw;
+            display: flex;
+            justify-content: space-around;
+
+            & .selected {
+                color: #66ccff;
+                font-weight: bold;
+            }
+        }
 
         .utils-section {
             width: 100%;
