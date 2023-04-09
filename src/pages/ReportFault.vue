@@ -139,13 +139,13 @@ const form = ref({
                 margin-bottom: 10px;
             }
 
-            :deep .el-upload {
+            :deep(.el-upload) {
                 width: 120px;
                 height: 120px;
             }
         }
 
-        :deep .el-form {
+        :deep(.el-form) {
             width: 90%;
             height: 100%;
             display: flex;
@@ -155,19 +155,19 @@ const form = ref({
             flex-wrap: wrap;
         }
 
-        :deep .el-form-item {
+        :deep(.el-form-item) {
             width: 95%;
             margin-left: -5px;
             border: solid #b1b1b1;
             border-width: 0 0 2px 0;
         }
-        :deep .el-input {
+        :deep(.el-input) {
             // border: solid #b1b1b1;
             // border-width: 0 0 2px 0;
             margin-left: -10px;
         }
 
-        :deep .el-input__wrapper {
+        :deep(.el-input__wrapper) {
             box-shadow: none;
         }
     }
