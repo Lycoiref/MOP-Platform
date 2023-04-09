@@ -14,3 +14,8 @@ body {
 .header > .el-icon {
     font-weight: bolder;
 }
+
+.page {
+    width: 100vw;
+    height: 100vh;
+}

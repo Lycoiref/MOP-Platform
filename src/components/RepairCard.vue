@@ -5,7 +5,12 @@
             <div class="topline inline">
                 <div class="username">报修人：{{ repairData.name }}</div>
                 <div v-if="repairData.status === 0" class="status" :class="`status_${repairData.status}`">未处理</div>
-                <div v-else-if="repairData.status === 1" class="status" :class="`status_${repairData.status}`">
+                <div
+                    v-else-if="repairData.status === 1"
+                    class="status"
+                    :class="`status_${repairData.status}`"
+                    @click.stop="router.push(`/mark/${props.orderId}`)"
+                >
                     待评价
                 </div>
             </div>
