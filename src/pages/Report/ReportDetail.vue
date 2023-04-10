@@ -3,6 +3,25 @@
         <div class="mobile-page">
             <MobileHeader></MobileHeader>
             <div class="content">
+                <div class="title">
+                    <!-- 维修人行 -->
+                    <div class="engineer">
+                        <el-avatar :icon="UserFilled" :size="60" />
+                        维修人
+                    </div>
+                    <div class="repairId">
+                        <!-- 订单编号 -->
+                        订单编号：241241124
+                    </div>
+                </div>
+                <div class="steps">
+                    <el-steps :active="0" finish-status="success" align-center>
+                        <el-step title="待接单" />
+                        <el-step title="待维修" />
+                        <el-step title="待评价" />
+                        <el-step title="已完成" />
+                    </el-steps>
+                </div>
                 <el-form :model="form" label-width="75px" label-position="left">
                     <div class="label">设备信息</div>
                     <el-form-item label="设备名称"> <el-input v-model="form.equipmentName" /></el-form-item>
@@ -56,10 +75,9 @@
                     <el-form-item label="电话"> <el-input v-model="form.type" /></el-form-item>
                     <div class="time">
                         <div class="time-label">预约上门时间</div>
-                        <el-date-picker v-model="value1" type="date" placeholder="Pick a day" />
-                        <el-date-picker v-model="value1" type="date" placeholder="Pick a day" />
+                        <el-date-picker v-model="form.startTime" type="date" placeholder="Pick a day" />
+                        <el-date-picker v-model="form.endTime" type="date" placeholder="Pick a day" />
                     </div>
-                    <el-button type="primary" size="large" round @click="router.push('/submit')">发起报修</el-button>
                 </el-form>
             </div>
         </div>
@@ -70,12 +88,11 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+import { UserFilled } from '@element-plus/icons-vue'
 // 图片上传
 import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
-import MobileHeader from '../components/MobileHeader.vue'
+import MobileHeader from '@/components/MobileHeader.vue'
 
-let router = useRouter()
 const dialogImageUrl = ref('')
 const dialogVisible = ref(false)
 const disabled = ref(false)
@@ -101,7 +118,8 @@ const form = ref({
     equipmentName: '',
     address: '',
     reason: '',
-    time: '',
+    startTime: '',
+    endTime: '',
     status: 0,
 })
 </script>
@@ -119,7 +137,38 @@ const form = ref({
         width: 90vw;
         height: calc(~'100% - 30px');
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+            width: 100%;
+            height: 15%;
+            margin: 20px 0 0 0;
+            font-size: 18px;
+            font-weight: 400;
+            border: 0 solid #b1b1b1;
+            border-width: 0 0 2px 0;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            .engineer {
+                display: flex;
+                align-items: flex-end;
+
+                .el-avatar {
+                    margin-right: 10px;
+                    font-size: 30px;
+                }
+            }
+        }
+
+        // 步骤条
+        .steps {
+            width: 100%;
+            margin: 20px 0;
+        }
 
         // 设置el-form样式
         .no-underline {

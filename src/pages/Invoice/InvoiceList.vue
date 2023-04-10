@@ -9,8 +9,8 @@
 </template>
 
 <script setup>
-import InvoiceCard from '../components/InvoiceCard.vue'
-import MobileHeader from '../components/MobileHeader.vue'
+import InvoiceCard from '@/components/InvoiceCard.vue'
+import MobileHeader from '@/components/MobileHeader.vue'
 </script>
 
 <style scoped lang="less">

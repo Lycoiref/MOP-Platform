@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import MobileHeader from '../components/MobileHeader.vue'
+import MobileHeader from '@/components/MobileHeader.vue'
 </script>
 
 <style scoped lang="less">

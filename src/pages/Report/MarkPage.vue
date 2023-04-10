@@ -25,8 +25,8 @@
 </template>
 
 <script setup>
-import MobileHeader from '../components/MobileHeader.vue'
-import MarkBox from '../components/MarkBox.vue'
+import MobileHeader from '@/components/MobileHeader.vue'
+import MarkBox from '@/components/MarkBox.vue'
 import { UserFilled } from '@element-plus/icons-vue'
 </script>
 

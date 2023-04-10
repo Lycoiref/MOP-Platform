@@ -64,7 +64,7 @@ import RepairCard from '../components/RepairCard.vue'
 import OrderButton from '../components/OrderButton.vue'
 import InvoiceButton from '../components/InvoiceButton.vue'
 import { UserFilled } from '@element-plus/icons-vue'
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 
 let drawer = ref(false)
 let props = defineProps({
