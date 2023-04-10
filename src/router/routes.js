@@ -1,5 +1,7 @@
 import * as VueRouter from 'vue-router'
 import MainPage from '../pages/MainPage.vue'
+import LoginPage from '../pages/User/LoginPage.vue'
+import RegisterPage from '../pages/User/RegisterPage.vue'
 import ReportFault from '../pages/Report/ReportFault.vue'
 import SubmitSuccess from '../pages/Report/SubmitSuccess.vue'
 import InvoiceList from '../pages/Invoice/InvoiceList.vue'
@@ -17,6 +19,8 @@ const NotFound = { template: '<div>Sorry,Page not Found</div>' }
 // 我们后面再讨论嵌套路由。
 const routes = [
     { path: '/', component: MainPage },
+    { path: '/login', component: LoginPage },
+    { path: '/register', component: RegisterPage },
     { path: '/report', component: ReportFault },
     { path: '/report/:id', component: ReportDetail },
     { path: '/submit', component: SubmitSuccess },
