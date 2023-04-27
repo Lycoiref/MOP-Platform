@@ -8,6 +8,7 @@ import InvoiceList from '../pages/Invoice/InvoiceList.vue'
 import InvoiceDetail from '../pages/Invoice/InvoiceDetail.vue'
 import ReportDetail from '../pages/Report/ReportDetail.vue'
 import MarkPage from '../pages/Report/MarkPage.vue'
+import AddInvoice from '../pages/Invoice/AddInvoice.vue'
 
 // 1. 定义路由组件.
 // 也可以从其他文件导入
@@ -26,6 +27,7 @@ const routes = [
     { path: '/submit', component: SubmitSuccess },
     { path: '/mark/:id', component: MarkPage },
     { path: '/invoice', component: InvoiceList },
+    { path: '/invoice/add', component: AddInvoice },
     { path: '/invoice/:id', component: InvoiceDetail },
     { path: '/about', component: About },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
