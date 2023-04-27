@@ -29,20 +29,36 @@
                 <CodeScanner></CodeScanner>
                 <FormBox></FormBox>
             </div>
-            <div v-else-if="props.role === 'admin'" class="utils-section">
+            <div v-else-if="props.role === 'engineer'" class="utils-section">
                 <OrderButton></OrderButton>
                 <InvoiceButton></InvoiceButton>
             </div>
+            <div v-else-if="props.role === 'admin'" class="utils-section">
+                <SelectBar />
+            </div>
             <div class="history-recorder">
-                <div class="title-box">历史报修记录</div>
-                <div v-if="props.role === 'admin'" class="select-bar">
+                <div v-if="props.role === 'admin'" class="title-box">维修单列表</div>
+                <div v-else class="title-box">历史报修记录</div>
+                <div v-if="props.role === 'engineer'" class="select-bar">
                     <div class="bar selected">全部</div>
                     <div class="bar">待处理</div>
                     <div class="bar">待评价</div>
                     <div class="bar">已完成</div>
                 </div>
-                <RepairCard></RepairCard>
-                <RepairCard></RepairCard>
+                <div v-else-if="props.role === 'admin'" class="filter">
+                    <el-select v-model="value" class="selector" placeholder="Select" size="small">
+                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+                    </el-select>
+                    <el-select v-model="value" class="selector" placeholder="Select" size="small">
+                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+                    </el-select>
+                </div>
+                <div class="card-box">
+                    <RepairCard></RepairCard>
+                    <RepairCard></RepairCard>
+                    <RepairCard></RepairCard>
+                    <RepairCard></RepairCard>
+                </div>
             </div>
         </div>
         <el-drawer v-model="drawer" :with-header="false" :direction="'ltr'" size="70%">
@@ -63,6 +79,7 @@ import FormBox from '../components/FormBox.vue'
 import RepairCard from '../components/RepairCard.vue'
 import OrderButton from '../components/OrderButton.vue'
 import InvoiceButton from '../components/InvoiceButton.vue'
+import SelectBar from '../components/Admin/SelectBar.vue'
 import { UserFilled } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 
@@ -73,6 +90,29 @@ let props = defineProps({
         default: 'admin',
     },
 })
+const value = ref('')
+const options = [
+    {
+        value: 'Option1',
+        label: 'Option1',
+    },
+    {
+        value: 'Option2',
+        label: 'Option2',
+    },
+    {
+        value: 'Option3',
+        label: 'Option3',
+    },
+    {
+        value: 'Option4',
+        label: 'Option4',
+    },
+    {
+        value: 'Option5',
+        label: 'Option5',
+    },
+]
 </script>
 
 <style scoped lang="less">
@@ -113,7 +153,7 @@ let props = defineProps({
         flex-wrap: wrap;
 
         .select-bar {
-            margin-top: 15px;
+            margin: 15px 0;
             width: 100vw;
             display: flex;
             justify-content: space-around;
@@ -121,6 +161,21 @@ let props = defineProps({
             & .selected {
                 color: #66ccff;
                 font-weight: bold;
+            }
+        }
+
+        .filter {
+            display: flex;
+            .selector {
+                margin: 10px;
+            }
+        }
+
+        .card-box {
+            overflow: auto;
+            // 隐藏滚动条
+            &::-webkit-scrollbar {
+                display: none;
             }
         }
 
