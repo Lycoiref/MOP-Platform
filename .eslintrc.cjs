@@ -17,7 +17,6 @@ module.exports = {
         'eslint-config-prettier',
         'eslint:recommended', // 使用推荐的eslint
         // 'airbnb',
-        'plugin:@typescript-eslint/recommended', // 不加这个用ts语法会报错
         'plugin:vue/vue3-recommended', // 使用插件支持vue3
         'plugin:vue/vue3-essential',
         //1.继承.prettierrc.js文件规则2.开启rules的 "prettier/prettier": "error"3.eslint fix的同时执行prettier格式化
