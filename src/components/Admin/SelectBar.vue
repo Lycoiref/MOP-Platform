@@ -16,7 +16,7 @@
             </div>
             <div class="tag">维修人管理</div>
         </div>
-        <div class="select-box">
+        <div class="select-box" @click="router.push('/admin/reimburse')">
             <div class="content">
                 <el-icon class="icon" size="80">
                     <invoice />
@@ -40,6 +40,9 @@ import users from '../../assets/icons/users.svg'
 import engineer from '../../assets/icons/engineer.svg'
 import invoice from '../../assets/icons/invoice.svg'
 import charPie from '../../assets/icons/chartPie.svg'
+import { useRouter } from 'vue-router'
+
+let router = useRouter()
 </script>
 
 <style scoped lang="less">
