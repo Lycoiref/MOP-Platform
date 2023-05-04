@@ -12,11 +12,17 @@
                 <el-menu-item index="0">LOGO</el-menu-item>
                 <el-menu-item index="1">Processing Center</el-menu-item>
             </el-menu>
+            <InvoiceCard />
+            <InvoiceCard />
+            <InvoiceCard />
+            <InvoiceCard />
+            <InvoiceCard />
         </div>
     </div>
 </template>
 
 <script setup>
+import InvoiceCard from '../../components/Admin/InvoiceCard.vue'
 import MobileHeader from '../../components/MobileHeader.vue'
 import { ref } from 'vue'
 
@@ -31,7 +37,8 @@ const handleSelect = (key, keyPath) => {
     margin-top: 10px;
     width: 100vw;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     :deep(.el-menu) {
         width: 80%;
