@@ -2,20 +2,6 @@ body {
     margin: 0;
 }
 
-.header {
-    --padding-left-width: 20px;
-    width: calc(100% - var(--padding-left-width));
-    height: 50px;
-    background-color: rgb(87, 168, 255);
-    display: flex;
-    align-items: center;
-    padding-left: var(--padding-left-width);
-}
-
-.header > .el-icon {
-    font-weight: bolder;
-}
-
 .page {
     width: 100vw;
     height: 100vh;

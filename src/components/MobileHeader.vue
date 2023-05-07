@@ -13,4 +13,18 @@ import { useRouter } from 'vue-router'
 let router = useRouter()
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.header {
+    --padding-left-width: 20px;
+    width: calc(100% - var(--padding-left-width));
+    height: 50px;
+    background-color: rgb(87, 168, 255);
+    display: flex;
+    align-items: center;
+    padding-left: var(--padding-left-width);
+}
+
+.header > .el-icon {
+    font-weight: bolder;
+}
+</style>
