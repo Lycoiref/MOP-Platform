@@ -10,7 +10,7 @@
                     <el-form-item label="地址"> <el-input v-model="form.address" /></el-form-item>
                     <div class="label">故障描述</div>
                     <el-form-item class="no-underline" label-width="0px">
-                        <el-input v-model="form.address" type="textarea" :rows="4"
+                        <el-input v-model="form.discription" type="textarea" :rows="4"
                     /></el-form-item>
                     <!-- 上传图片 -->
                     <div class="upload-box">
@@ -52,12 +52,12 @@
                         </el-dialog>
                     </div>
                     <div class="label">报修人信息</div>
-                    <el-form-item label="姓名"> <el-input v-model="form.equipmentName" /></el-form-item>
-                    <el-form-item label="电话"> <el-input v-model="form.type" /></el-form-item>
+                    <el-form-item label="姓名"> <el-input v-model="form.name" /></el-form-item>
+                    <el-form-item label="电话"> <el-input v-model="form.phone" /></el-form-item>
                     <div class="time">
                         <div class="time-label">预约上门时间</div>
-                        <el-date-picker v-model="value1" type="date" placeholder="Pick a day" />
-                        <el-date-picker v-model="value1" type="date" placeholder="Pick a day" />
+                        <el-date-picker v-model="form.startTime" type="date" placeholder="Pick a day" />
+                        <el-date-picker v-model="form.endTime" type="date" placeholder="Pick a day" />
                     </div>
                     <el-button type="primary" size="large" round @click="router.push('/submit')">发起报修</el-button>
                 </el-form>
@@ -96,12 +96,11 @@ const handleDownload = (file) => {
 const form = ref({
     name: '',
     type: '',
-    title: '',
-    orderId: 0,
     equipmentName: '',
     address: '',
-    reason: '',
-    time: '',
+    discription: '',
+    startTime: '',
+    endTime: '',
     status: 0,
 })
 </script>
