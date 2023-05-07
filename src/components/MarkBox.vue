@@ -4,14 +4,25 @@
             <div class="title line">服务评价</div>
             <div class="level line">
                 服务等级：
-                <el-icon :size="30" color="#66ccff"><StarFilled /></el-icon>
-                <el-icon :size="30" color="#66ccff"><StarFilled /></el-icon>
-                <el-icon :size="30" color="#66ccff"><StarFilled /></el-icon>
-                <el-icon :size="30" color="#66ccff"><StarFilled /></el-icon>
-                <el-icon :size="30" color="#66ccff"><StarFilled /></el-icon>
+                <div v-for="index in 5" :key="index" class="stars">
+                    <el-icon
+                        v-if="index <= starCount"
+                        :key="index"
+                        :size="30"
+                        color="#66ccff"
+                        @click="selectStar(index)"
+                        ><StarFilled
+                    /></el-icon>
+                    <el-icon v-else :size="30" color="#cccccc" @click="selectStar(index)"><Star /></el-icon>
+                </div>
             </div>
             <div class="advice">
-                <el-input placeholder="请对本次服务过程进行评价" type="textarea" :rows="4"></el-input>
+                <el-input
+                    v-model="evaluation"
+                    placeholder="请对本次服务过程进行评价"
+                    type="textarea"
+                    :rows="4"
+                ></el-input>
             </div>
             <div class="submit-line line">
                 <el-button type="primary" @click="submitMark">提交</el-button>
@@ -22,25 +33,33 @@
 </template>
 
 <script setup>
-import { StarFilled } from '@element-plus/icons-vue'
+import { StarFilled, Star } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
+import { ref } from 'vue'
 
 const router = useRouter()
+const evaluation = ref('')
+const starCount = ref(0)
 
 const submitMark = () => {
     router.push('/')
+}
+
+const selectStar = (index) => {
+    starCount.value = index
 }
 </script>
 
 <style scoped lang="less">
 .mask {
     position: fixed;
+    z-index: 999;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    pointer-events: none;
+    // pointer-events: none;
 
     .mark-box {
         height: 260px;

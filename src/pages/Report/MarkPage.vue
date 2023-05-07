@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="steps">
-            <el-steps :active="0" finish-status="success" align-center>
+            <el-steps :active="2" finish-status="success" align-center>
                 <el-step title="待接单" />
                 <el-step title="待维修" />
                 <el-step title="待评价" />
@@ -32,6 +32,7 @@ import { UserFilled } from '@element-plus/icons-vue'
 
 <style scoped lang="less">
 .page {
+    z-index: -1;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
