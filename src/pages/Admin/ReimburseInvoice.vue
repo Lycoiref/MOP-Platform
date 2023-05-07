@@ -38,7 +38,7 @@ const handleSelect = (key, keyPath) => {
 const testInfo = ref({
     name: '刘宇飞',
     date: '2023-5-7',
-    info: '啊——————————',
+    info: '啊————（听不见催稿哦）',
     cost: '9999999.00',
     status: '2',
 })
