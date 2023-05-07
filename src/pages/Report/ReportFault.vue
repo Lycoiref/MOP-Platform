@@ -95,6 +95,7 @@ const handleDownload = (file) => {
 
 const form = ref({
     name: '',
+    phone: '',
     type: '',
     equipmentName: '',
     address: '',

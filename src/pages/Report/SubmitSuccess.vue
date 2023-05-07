@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <img src="../assets/success.png" alt="成功" />
+        <img src="../../assets/success.png" alt="成功" />
         <div class="btn-box">
             <el-button type="primary" @click="router.push('/detail')">查看订单</el-button>
             <el-button @click="router.push('/')">返回主页</el-button>
