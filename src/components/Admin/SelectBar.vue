@@ -8,7 +8,7 @@
             </div>
             <div class="tag">客户管理</div>
         </div>
-        <div class="select-box">
+        <div class="select-box" @click="router.push('./admin/engineer')">
             <div class="content">
                 <el-icon class="icon" size="80">
                     <engineer />

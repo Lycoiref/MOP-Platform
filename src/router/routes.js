@@ -12,6 +12,7 @@ import AddInvoice from '../pages/Invoice/AddInvoice.vue'
 import ReimburseInvoice from '../pages/Admin/ReimburseInvoice.vue'
 import DataStatistics from '../pages/Admin/DataStatistics.vue'
 import CustomerManage from '../pages/Admin/CustomerManage.vue'
+import EngineerManage from '../pages/Admin/EngineerManage.vue'
 
 // 1. 定义路由组件.
 // 也可以从其他文件导入
@@ -35,6 +36,7 @@ const routes = [
     { path: '/admin/reimburse', component: ReimburseInvoice },
     { path: '/admin/statistics', component: DataStatistics },
     { path: '/admin/customer', component: CustomerManage },
+    { path: '/admin/engineer', component: EngineerManage },
     { path: '/about', component: About },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]

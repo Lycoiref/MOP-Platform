@@ -24,20 +24,15 @@
             共{{ dataCount }}条数据
         </div>
         <div class="card-content">
-            <CustomerCard />
-            <CustomerCard />
-            <CustomerCard />
-            <CustomerCard />
-            <CustomerCard />
-            <CustomerCard :card-info="testInfo" />
-            <div class="bottom-flow"><div class="flow"></div></div>
+            <EngineerCard v-for="index in 10" :key="index" />
+            <EngineerCard :card-info="testInfo" />
         </div>
     </div>
 </template>
 
 <script setup>
 import MobileHeader from '../../components/MobileHeader.vue'
-import CustomerCard from '../../components/Admin/CustomerCard.vue'
+import EngineerCard from '../../components/Admin/EngineerCard.vue'
 import { ref } from 'vue'
 import { Search } from '@element-plus/icons-vue'
 
@@ -73,11 +68,10 @@ const filterOptions = [
         label: 'Option4',
     },
 ]
+
 const testInfo = {
     name: '刘宇飞',
-    phone: '66666666666',
-    address: '浙江省杭州市杭州电子科技大学',
-    history: 999,
+    engineerId: 114514,
 }
 </script>
 
