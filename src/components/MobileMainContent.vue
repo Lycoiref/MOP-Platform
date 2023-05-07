@@ -25,27 +25,27 @@
             </div>
         </div>
         <div class="body">
-            <div v-if="props.role === 'user'" class="utils-section">
+            <div v-if="role === 'user'" class="utils-section">
                 <CodeScanner></CodeScanner>
                 <FormBox></FormBox>
             </div>
-            <div v-else-if="props.role === 'engineer'" class="utils-section">
+            <div v-else-if="role === 'engineer'" class="utils-section">
                 <OrderButton></OrderButton>
                 <InvoiceButton></InvoiceButton>
             </div>
-            <div v-else-if="props.role === 'admin'" class="utils-section">
+            <div v-else-if="role === 'admin'" class="utils-section">
                 <SelectBar />
             </div>
             <div class="history-recorder">
-                <div v-if="props.role === 'admin'" class="title-box">维修单列表</div>
+                <div v-if="role === 'admin'" class="title-box">维修单列表</div>
                 <div v-else class="title-box">历史报修记录</div>
-                <div v-if="props.role === 'engineer'" class="select-bar">
+                <div v-if="role === 'engineer'" class="select-bar">
                     <div class="bar selected">全部</div>
                     <div class="bar">待处理</div>
                     <div class="bar">待评价</div>
                     <div class="bar">已完成</div>
                 </div>
-                <div v-else-if="props.role === 'admin'" class="filter">
+                <div v-else-if="role === 'admin'" class="filter">
                     <el-select v-model="value" class="selector" placeholder="Select" size="small">
                         <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
                     </el-select>
@@ -63,8 +63,15 @@
         </div>
         <el-drawer v-model="drawer" :with-header="false" :direction="'ltr'" size="70%">
             <div class="login_box">
-                <el-avatar :icon="UserFilled" :size="50" class="avatar" style="font-size: 25px" />
-                <div class="login_text">注册/登录</div>
+                <div class="user-avatar">
+                    <el-avatar :icon="UserFilled" :size="50" class="avatar" style="font-size: 25px" />
+                    <div class="login_text">注册/登录</div>
+                </div>
+                <div class="switch-role">
+                    <div class="role" @click="changeRole(1)">用户</div>
+                    <div class="role" @click="changeRole(2)">维修人员</div>
+                    <div class="role" @click="changeRole(3)">维修主管</div>
+                </div>
             </div>
         </el-drawer>
         <div class="background-page">
@@ -87,9 +94,10 @@ let drawer = ref(false)
 let props = defineProps({
     role: {
         type: String,
-        default: 'admin',
+        default: 'user',
     },
 })
+let role = ref(props.role)
 const value = ref('')
 const options = [
     {
@@ -113,6 +121,21 @@ const options = [
         label: 'Option5',
     },
 ]
+
+const changeRole = (roleCode) => {
+    console.log(roleCode)
+    switch (roleCode) {
+        case 1:
+            role.value = 'user'
+            break
+        case 2:
+            role.value = 'engineer'
+            break
+        case 3:
+            role.value = 'admin'
+            break
+    }
+}
 </script>
 
 <style scoped lang="less">
@@ -229,11 +252,31 @@ const options = [
         width: 100%;
         // height: 200px;
         display: flex;
-        align-items: center;
+        // align-items: center;
+        justify-content: center;
+        flex-direction: column;
 
-        .login_text {
-            margin-left: 20px;
-            font-size: 14px;
+        .user-avatar {
+            display: flex;
+            .login_text {
+                display: flex;
+                align-items: center;
+                margin-left: 20px;
+                font-size: 16px;
+            }
+        }
+
+        .switch-role {
+            width: 100%;
+            margin-top: 30px;
+
+            .role {
+                width: 100%;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                font-weight: bolder;
+            }
         }
     }
 }
