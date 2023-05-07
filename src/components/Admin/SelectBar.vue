@@ -24,7 +24,7 @@
             </div>
             <div class="tag">发票报销</div>
         </div>
-        <div class="select-box">
+        <div class="select-box" @click="router.push('/admin/statistics')">
             <div class="content">
                 <el-icon class="icon" size="80">
                     <charPie />
