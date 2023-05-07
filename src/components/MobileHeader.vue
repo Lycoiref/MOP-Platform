@@ -1,6 +1,6 @@
 <template>
-    <div class="header" @click="router.go(-1)">
-        <el-icon :size="25" color="#ffffff">
+    <div class="header">
+        <el-icon :size="25" color="#ffffff" @click="router.go(-1)">
             <Back></Back>
         </el-icon>
     </div>

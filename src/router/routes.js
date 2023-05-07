@@ -10,6 +10,7 @@ import ReportDetail from '../pages/Report/ReportDetail.vue'
 import MarkPage from '../pages/Report/MarkPage.vue'
 import AddInvoice from '../pages/Invoice/AddInvoice.vue'
 import ReimburseInvoice from '../pages/Admin/ReimburseInvoice.vue'
+import DataStatistics from '../pages/Admin/DataStatistics.vue'
 
 // 1. 定义路由组件.
 // 也可以从其他文件导入
@@ -31,6 +32,7 @@ const routes = [
     { path: '/invoice/add', component: AddInvoice },
     { path: '/invoice/:id', component: InvoiceDetail },
     { path: '/admin/reimburse', component: ReimburseInvoice },
+    { path: '/admin/statistics', component: DataStatistics },
     { path: '/about', component: About },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
