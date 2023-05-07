@@ -1,6 +1,6 @@
 <template>
     <div class="line">
-        <div class="select-box">
+        <div class="select-box" @click="router.push('/admin/customer')">
             <div class="content">
                 <el-icon class="icon" size="80px">
                     <users />
