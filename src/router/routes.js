@@ -7,6 +7,7 @@ import SubmitSuccess from '../pages/Report/SubmitSuccess.vue'
 import InvoiceList from '../pages/Invoice/InvoiceList.vue'
 import InvoiceDetail from '../pages/Invoice/InvoiceDetail.vue'
 import ReportDetail from '../pages/Report/ReportDetail.vue'
+import EngineerReportDetail from '../pages/Engineer/ReportDetail.vue'
 import MarkPage from '../pages/Report/MarkPage.vue'
 import AddInvoice from '../pages/Invoice/AddInvoice.vue'
 import ReimburseInvoice from '../pages/Admin/ReimburseInvoice.vue'
@@ -26,8 +27,9 @@ const routes = [
     { path: '/', component: MainPage },
     { path: '/login', component: LoginPage },
     { path: '/register', component: RegisterPage },
-    { path: '/report', component: ReportFault },
-    { path: '/report/:id', component: ReportDetail },
+    { path: '/user/report', component: ReportFault },
+    { path: '/user/report/:id', component: ReportDetail },
+    { path: '/engineer/report/:id', component: EngineerReportDetail },
     { path: '/submit', component: SubmitSuccess },
     { path: '/mark/:id', component: MarkPage },
     { path: '/invoice', component: InvoiceList },

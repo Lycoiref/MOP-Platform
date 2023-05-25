@@ -1,10 +1,10 @@
 <!-- 维修历史卡片 -->
 <template>
-    <div class="card-body" @click="router.push(`/report/${repairData.orderId}`)">
+    <div class="card-body" @click="goCardDetail">
         <div class="content">
             <div class="topline inline">
                 <div class="username">报修人：{{ repairData.name }}</div>
-                <div v-if="repairData.status === 0" class="status" :class="`status_${repairData.status}`">未处理</div>
+                <div v-if="repairData.status === 0" class="status" :class="`status_${repairData.status}`">待处理</div>
                 <div
                     v-else-if="repairData.status === 1"
                     class="status"
@@ -46,9 +46,26 @@ const props = defineProps({
             }
         },
     },
+    role: {
+        type: String,
+        default: 'user',
+    },
 })
 
 let repairData = ref(props.repairData)
+
+const goCardDetail = () => {
+    switch (props.role) {
+        case 'user':
+            router.push(`/user/report/${repairData.value.orderId}`)
+            break
+        case 'engineer':
+            router.push(`/engineer/report/${repairData.value.orderId}`)
+            break
+        default:
+            break
+    }
+}
 </script>
 
 <style scoped lang="less">

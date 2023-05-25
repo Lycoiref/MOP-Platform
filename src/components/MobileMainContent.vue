@@ -54,10 +54,10 @@
                     </el-select>
                 </div>
                 <div class="card-box">
-                    <RepairCard></RepairCard>
-                    <RepairCard></RepairCard>
-                    <RepairCard></RepairCard>
-                    <RepairCard></RepairCard>
+                    <RepairCard :role="role"></RepairCard>
+                    <RepairCard :role="role"></RepairCard>
+                    <RepairCard :role="role"></RepairCard>
+                    <RepairCard :role="role"></RepairCard>
                 </div>
             </div>
         </div>
