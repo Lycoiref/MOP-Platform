@@ -69,11 +69,18 @@
                 <div class="item-value">{{ details.phone }}</div>
             </div>
         </div>
+        <div class="button-line">
+            <el-button class="button" round @click="router.push('/')">返回</el-button>
+            <el-button class="button" type="primary" round @click="router.push('/')">处理完成</el-button>
+        </div>
     </div>
 </template>
 
 <script setup>
 import MobileHeader from '../../components/MobileHeader.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 defineProps({
     details: {
@@ -140,6 +147,20 @@ defineProps({
                 width: 50%;
                 text-align: right;
             }
+        }
+    }
+
+    .button-line {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .button {
+            margin: 20px;
+            width: 150px;
+            height: 40px;
         }
     }
 }
