@@ -59,7 +59,7 @@ const selectStar = (index) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    // pointer-events: none;
+    pointer-events: none;
 
     .mark-box {
         height: 260px;
@@ -71,6 +71,7 @@ const selectStar = (index) => {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        pointer-events: all;
 
         // 全局配置置顶
         .line {
