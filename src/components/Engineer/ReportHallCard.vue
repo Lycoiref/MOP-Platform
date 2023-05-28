@@ -26,7 +26,12 @@
             <div class="label">发起时间：</div>
             <div class="value">{{ report.time }}</div>
             <div class="grab-report">
-                <el-button type="primary" size="small" round @click="router.push(`/engineer/report/${report.id}`)"
+                <!-- TODO: 这里的status=0之后正式上线时记得删掉 -->
+                <el-button
+                    type="primary"
+                    size="small"
+                    round
+                    @click="router.push(`/engineer/report/${report.id}?status=0`)"
                     >抢单</el-button
                 >
             </div>

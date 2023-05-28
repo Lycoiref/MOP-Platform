@@ -69,39 +69,43 @@
                 <div class="item-value">{{ details.phone }}</div>
             </div>
         </div>
-        <div class="button-line">
+        <div v-if="details.status === '1'" class="button-line">
             <el-button class="button" round @click="router.push('/')">返回</el-button>
             <el-button class="button" type="primary" round @click="router.push('/')">处理完成</el-button>
+        </div>
+        <div v-if="details.status === '0'" class="button-line">
+            <el-button class="button" round @click="router.go(-1)">返回</el-button>
+            <el-button class="button" type="primary" round @click="router.push('/')">接单</el-button>
         </div>
     </div>
 </template>
 
 <script setup>
 import MobileHeader from '../../components/MobileHeader.vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
+const defaultValue = {
+    name: '张三',
+    phone: 15636354355,
+    title: '1111',
+    orderId: 1234643325723,
+    equipmentName: '丑的空调',
+    equipmentId: 123456789,
+    type: '空调',
+    address: '浙江省杭州市江干区杭州电子科技大学下沙校区生活区5号楼',
+    reason: '空调制冷效果差',
+    time: '2021年05月01日',
+    status: '1',
+}
 
-defineProps({
-    details: {
-        type: Object,
-        default() {
-            return {
-                name: '张三',
-                phone: 15636354355,
-                title: '1111',
-                orderId: 1234643325723,
-                equipmentName: '丑的空调',
-                equipmentId: 123456789,
-                type: '空调',
-                address: '浙江省杭州市江干区杭州电子科技大学下沙校区生活区5号楼',
-                reason: '空调制冷效果差',
-                time: '2021年05月01日',
-                status: 1,
-            }
-        },
-    },
-})
+let details = defaultValue
+// 获取路由id
+const id = route.params.id
+console.log(id)
+// 获取query参数
+details.status = route.query.status || '1'
 </script>
 
 <style scoped lang="less">
