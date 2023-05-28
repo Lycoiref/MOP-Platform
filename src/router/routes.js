@@ -8,6 +8,7 @@ import InvoiceList from '../pages/Invoice/InvoiceList.vue'
 import InvoiceDetail from '../pages/Invoice/InvoiceDetail.vue'
 import ReportDetail from '../pages/Report/ReportDetail.vue'
 import EngineerReportDetail from '../pages/Engineer/ReportDetail.vue'
+import EngineerReportHall from '../pages/Engineer/ReportHall.vue'
 import MarkPage from '../pages/Report/MarkPage.vue'
 import AddInvoice from '../pages/Invoice/AddInvoice.vue'
 import ReimburseInvoice from '../pages/Admin/ReimburseInvoice.vue'
@@ -29,6 +30,7 @@ const routes = [
     { path: '/register', component: RegisterPage },
     { path: '/user/report', component: ReportFault },
     { path: '/user/report/:id', component: ReportDetail },
+    { path: '/engineer/report', component: EngineerReportHall },
     { path: '/engineer/report/:id', component: EngineerReportDetail },
     { path: '/submit', component: SubmitSuccess },
     { path: '/mark/:id', component: MarkPage },

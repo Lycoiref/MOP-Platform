@@ -1,6 +1,6 @@
 <!-- 扫描二维码 -->
 <template>
-    <div class="QR-box" @click="router.push('/orders')">
+    <div class="QR-box" @click="router.push('/engineer/report')">
         <div class="icon-box">
             <svg
                 t="1679851369324"

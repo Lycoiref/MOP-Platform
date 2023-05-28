@@ -1,6 +1,5 @@
-<!-- 工单大厅 -->
 <template>
-    <div class="page">111</div>
+    <div class="card"></div>
 </template>
 
 <script setup></script>
