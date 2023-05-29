@@ -73,7 +73,6 @@ const selectStar = (index) => {
         align-items: center;
         pointer-events: all;
 
-        // 全局配置置顶
         .line {
             width: 100%;
             height: 20%;
