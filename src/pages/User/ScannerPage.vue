@@ -1,20 +1,26 @@
 <template>
     <div class="page">
         <qr-stream class="mb" @decode="onDecode"></qr-stream>
-        <div class="result">Result: {{ data }}</div>
+        <!-- <div class="result">Result: {{ qrcode }}</div> -->
     </div>
 </template>
 
 <script setup>
 import { QrStream } from 'vue3-qr-reader'
-import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+// import { ref } from 'vue'
 
-const state = ref({
-    data: null,
-})
+// const qrcode = ref('')
+const router = new useRouter()
 
 function onDecode(data) {
-    state.value.data = data
+    // qrcode.value = data
+    // 判断data是否是数字
+    if (isNaN(data)) {
+        alert('请扫描正确的二维码')
+        return
+    }
+    router.push(`/user/report/${data}`)
 }
 </script>
 
