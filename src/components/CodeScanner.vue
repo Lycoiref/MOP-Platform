@@ -1,6 +1,6 @@
 <!-- 扫描二维码 -->
 <template>
-    <div class="QR-box">
+    <div class="QR-box" @click="router.push('/scanner')">
         <div class="icon-box">
             <svg
                 t="1679851369324"
@@ -26,7 +26,11 @@
     </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+</script>
 
 <style scoped lang="less">
 .QR-box {

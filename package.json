@@ -21,6 +21,7 @@
     "vite-svg-loader": "^4.0.0",
     "vue": "^3.2.45",
     "vue-router": "4",
+    "vue3-qr-reader": "^1.0.0",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
