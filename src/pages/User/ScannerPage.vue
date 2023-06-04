@@ -13,6 +13,14 @@ import { useRouter } from 'vue-router'
 // const qrcode = ref('')
 const router = new useRouter()
 
+Promise.resolve(navigator.mediaDevices.getUserMedia({ video: true }))
+    .then((stream) => {
+        console.log(stream)
+    })
+    .catch(() => {
+        alert('未找到摄像头，请检查设备是否正常')
+    })
+
 function onDecode(data) {
     // qrcode.value = data
     // 判断data是否是数字
