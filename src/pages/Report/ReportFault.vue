@@ -70,7 +70,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 // 图片上传
 import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
 import MobileHeader from '@/components/MobileHeader.vue'
@@ -104,6 +104,9 @@ const form = ref({
     endTime: '',
     status: 0,
 })
+
+const route = useRoute()
+console.log(route.query.id)
 </script>
 
 <style scoped lang="less">

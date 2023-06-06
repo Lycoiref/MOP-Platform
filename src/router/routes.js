@@ -29,7 +29,7 @@ const routes = [
     { path: '/', component: MainPage },
     { path: '/login', component: LoginPage },
     { path: '/register', component: RegisterPage },
-    { path: '/user/report', component: ReportFault },
+    { path: '/user/report', component: ReportFault, name: 'ReportFault' },
     { path: '/user/report/:id', component: ReportDetail },
     { path: '/engineer/report', component: EngineerReportHall },
     { path: '/engineer/report/:id', component: EngineerReportDetail },

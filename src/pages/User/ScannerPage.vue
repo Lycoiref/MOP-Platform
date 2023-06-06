@@ -28,7 +28,7 @@ function onDecode(data) {
         alert('请扫描正确的二维码')
         return
     }
-    router.push(`/user/report/${data}`)
+    router.push({ name: 'ReportFault', query: { id: data } })
 }
 </script>
 
