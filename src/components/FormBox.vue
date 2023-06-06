@@ -1,6 +1,6 @@
 <!-- 填写报修单 -->
 <template>
-    <div class="form-box" @click="router.push('/report')">
+    <div class="form-box" @click="router.push('/user/report')">
         <div class="icon-box">
             <svg
                 t="1679855445645"
