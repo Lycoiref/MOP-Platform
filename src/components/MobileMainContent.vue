@@ -89,6 +89,7 @@ import InvoiceButton from './Engineer/InvoiceButton.vue'
 import SelectBar from '../components/Admin/SelectBar.vue'
 import { UserFilled } from '@element-plus/icons-vue'
 import { ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 let drawer = ref(false)
 let props = defineProps({
@@ -97,7 +98,10 @@ let props = defineProps({
         default: 'user',
     },
 })
+const route = useRoute()
+const router = useRouter()
 let role = ref(props.role)
+role.value = route.query.role?.toString() || 'user'
 const value = ref('')
 const options = [
     {
@@ -126,12 +130,15 @@ const changeRole = (roleCode) => {
     console.log(roleCode)
     switch (roleCode) {
         case 1:
+            router.push({ query: { role: 'user' } })
             role.value = 'user'
             break
         case 2:
+            router.push({ query: { role: 'engineer' } })
             role.value = 'engineer'
             break
         case 3:
+            router.push({ query: { role: 'admin' } })
             role.value = 'admin'
             break
     }
